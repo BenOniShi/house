@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domain.house.mapper.HouseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.domain.house.entity.House">
+        <id column="id" property="id" />
+        <result column="district" property="district" />
+        <result column="business" property="business" />
+        <result column="quarters" property="quarters" />
+        <result column="layout" property="layout" />
+        <result column="characteristic" property="characteristic" />
+        <result column="area" property="area" />
+        <result column="orientation" property="orientation" />
+        <result column="floor" property="floor" />
+        <result column="lift" property="lift" />
+        <result column="parking" property="parking" />
+        <result column="water" property="water" />
+        <result column="kwh" property="kwh" />
+        <result column="gas" property="gas" />
+        <result column="heating" property="heating" />
+        <result column="renovation" property="renovation" />
+        <result column="tenancy" property="tenancy" />
+        <result column="leasing" property="leasing" />
+        <result column="payment" property="payment" />
+        <result column="rent" property="rent" />
+        <result column="deposit" property="deposit" />
+        <result column="agency_fee" property="agencyFee" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, district, business, quarters, layout, characteristic, area, orientation, floor, lift, parking, water, kwh, gas, heating, renovation, tenancy, leasing, payment, rent, deposit, 
+agency_fee, longitude, latitude
+    </sql>
+    <select id="districtGroupCount" resultType="com.domain.house.entity.CountName">
+       SELECT COUNT(1) as 'count',district as 'name' from house GROUP BY district
+    </select>
+    <select id="layoutGroupCount" resultType="com.domain.house.entity.CountName">
+       SELECT COUNT(1) as 'count',layout as 'name' from house GROUP BY layout ORDER BY COUNT(1) DESC LIMIT 10
+    </select>
+    <select id="businessGroupCount" resultType="com.domain.house.entity.CountName">
+        SELECT COUNT(1) as 'count',business as 'name' from house GROUP BY business ORDER BY COUNT(1) DESC  LIMIT 20
+    </select>
+    <select id="areaGroupCount" resultType="com.domain.house.entity.ValueName">
+        SELECT
+        COUNT( 1 ) AS 'value',
+        '小户型' AS 'name'
+        FROM
+        house
+        WHERE
+        area BETWEEN 0
+        AND 90 UNION
+        SELECT
+        COUNT( 1 ) AS 'value',
+        '中户型' AS 'name'
+        FROM
+        house
+        WHERE
+        area BETWEEN 90
+        AND 144 UNION
+        SELECT
+        COUNT( 1 ) AS 'value',
+        '大户型' AS 'name'
+        FROM
+        house
+        WHERE
+        area  BETWEEN 144
+        AND 1000
+    </select>
+    <select id="orientationGroupCount" resultType="com.domain.house.entity.ValueName">
+    SELECT
+        COUNT( 1 ) AS 'value',
+        LEFT ( orientation, 2 ) AS 'name'
+    FROM
+        house
+    GROUP BY
+        LEFT ( orientation, 2);
+    </select>
+    <select id="renovationGroupCount" resultType="com.domain.house.entity.ValueName">
+          SELECT
+	COUNT( 1 ) AS 'value',
+    renovation AS 'name'
+    FROM
+        house
+    GROUP BY
+        renovation
+    </select>
+    <select id="parkingGroupCount" resultType="com.domain.house.entity.ValueName">
+          SELECT
+	COUNT( 1 ) AS 'value',
+    parking AS 'name'
+    FROM
+        house
+    GROUP BY
+        parking
+    </select>
+    <select id="floorGroupCount" resultType="com.domain.house.entity.ValueName">
+    SELECT
+        COUNT( 1 ) AS 'value',
+        LEFT(floor,3) AS 'name'
+    FROM
+        house
+    GROUP BY
+        LEFT(floor,3);
+    </select>
+    <select id="liftGroupCount" resultType="com.domain.house.entity.ValueName">
+    SELECT
+	COUNT( 1 ) AS 'value',
+    lift AS 'name'
+    FROM
+        house
+    GROUP BY
+        lift
+    </select>
+    <select id="waterGroupCount" resultType="com.domain.house.entity.ValueName">
+         SELECT
+	COUNT( 1 ) AS 'value',
+    water AS 'name'
+    FROM
+        house
+    GROUP BY
+        water
+    </select>
+    <select id="kwhGroupCount" resultType="com.domain.house.entity.ValueName">
+         SELECT
+	COUNT( 1 ) AS 'value',
+    kwh AS 'name'
+    FROM
+        house
+    GROUP BY
+        kwh
+    </select>
+    <select id="gasGroupCount" resultType="com.domain.house.entity.ValueName">
+         SELECT
+	COUNT( 1 ) AS 'value',
+    gas AS 'name'
+    FROM
+        house
+    GROUP BY
+        gas
+    </select>
+    <select id="heatingGroupCount" resultType="com.domain.house.entity.ValueName">
+         SELECT
+	COUNT( 1 ) AS 'value',
+    heating AS 'name'
+    FROM
+        house
+    GROUP BY
+        heating
+    </select>
+    <select id="top20RentBusiness" resultType="com.domain.house.entity.CountName">
+    SELECT
+    SUBSTRING_INDEX(AVG(rent),'.',1) as count,
+    business AS 'name'
+    FROM
+    house
+    GROUP BY
+    business
+    ORDER BY AVG(rent) DESC LIMIT 20
+    </select>
+</mapper>
