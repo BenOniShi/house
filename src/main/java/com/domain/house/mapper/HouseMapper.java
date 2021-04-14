@@ -44,4 +44,8 @@ public interface HouseMapper extends BaseMapper<House> {
     List<ValueName> heatingGroupCount();
 
     List<CountName> top20RentBusiness();
+
+    List<CountName> top10AvgRent();
+
+    List<CountName> reciprocal10AvgRent();
 }

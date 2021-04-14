@@ -96,4 +96,14 @@ public class HouseServiceImpl extends ServiceImpl<HouseMapper, House> implements
     public List<CountName> top20RentBusiness() {
         return houseMapper.top20RentBusiness();
     }
+
+    @Override
+    public List<CountName> top10AvgRent() {
+        return houseMapper.top10AvgRent();
+    }
+
+    @Override
+    public List<CountName> reciprocal10AvgRent() {
+        return houseMapper.reciprocal10AvgRent();
+    }
 }

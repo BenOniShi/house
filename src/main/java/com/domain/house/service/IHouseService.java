@@ -44,4 +44,8 @@ public interface IHouseService extends IService<House> {
     List<ValueName> heatingGroupCount();
 
     List<CountName> top20RentBusiness();
+
+    List<CountName> top10AvgRent();
+
+    List<CountName> reciprocal10AvgRent();
 }

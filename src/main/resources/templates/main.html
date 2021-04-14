@@ -28,42 +28,42 @@
         </ul>
         <div class="total_chose_box" style="display: none;">
             <div style="height: 32px;"></div>
-                        <span class="chose_tltle">请选择年份：</span>
-                        <select class="year_chose">
-                            <option>2017</option>
-                            <option>2016</option>
-                            <option>2015</option>
-                            <option>2014</option>
-                            <option>2013</option>
-                            <option>2012</option>
-                        </select>
-                        <span class="chose_tltle">请输入月份：</span>
-                        <input class="chose_text_in">
-                        <span class="chose_tltle">请选择区域：</span>
-                        <select class="year_chose">
-                            <option> 北京市</option>
-                            <option>自贡市</option>
-                            <option>攀枝花市</option>
-                            <option>泸州市</option>
-                            <option>德阳市</option>
-                            <option>绵阳市</option>
-                            <option>广元市</option>
-                            <option>遂宁市</option>
-                            <option>内江市</option>
-                            <option>乐山市</option>
-                            <option>南充市</option>
-                            <option>宜宾市</option>
-                            <option>广安市</option>
-                            <option>达州市</option>
-                            <option>巴中市</option>
-                            <option>雅安市</option>
-                            <option>眉山市</option>
-                            <option>资阳市</option>
-                            <option>阿坝州</option>
-                            <option>甘孜州</option>
-                            <option>凉山州</option>
-                        </select>
-                        <button class="chose_enter">确定</button>
+            <span class="chose_tltle">请选择年份：</span>
+            <select class="year_chose">
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+            </select>
+            <span class="chose_tltle">请输入月份：</span>
+            <input class="chose_text_in">
+            <span class="chose_tltle">请选择区域：</span>
+            <select class="year_chose">
+                <option> 北京市</option>
+                <option>自贡市</option>
+                <option>攀枝花市</option>
+                <option>泸州市</option>
+                <option>德阳市</option>
+                <option>绵阳市</option>
+                <option>广元市</option>
+                <option>遂宁市</option>
+                <option>内江市</option>
+                <option>乐山市</option>
+                <option>南充市</option>
+                <option>宜宾市</option>
+                <option>广安市</option>
+                <option>达州市</option>
+                <option>巴中市</option>
+                <option>雅安市</option>
+                <option>眉山市</option>
+                <option>资阳市</option>
+                <option>阿坝州</option>
+                <option>甘孜州</option>
+                <option>凉山州</option>
+            </select>
+            <button class="chose_enter">确定</button>
         </div>
         <div class="clear"></div>
     </div>
@@ -74,7 +74,8 @@
             <div class="left_cage">
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 9% !important; height: 24%;">
                     <div class="map_title" style="background-image: url(img/second_title.png);">各行政区房源数量</div>
-                    <div id="top20_busines" style="height: 90%;width: 100%"></div>
+                    <!--                        <table id="table" style="width: 100%"></table>-->
+                    <div id="district_group" style="height: 90%;width:100%"></div>
 
                 </div>
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 1.5% !important; height: 38%;">
@@ -84,7 +85,6 @@
                 </div>
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 1.5% !important; height: 32%;">
                     <div class="map_title" style="background-image: url(img/second_title.png);">Top10户型</div>
-                    <div id="top10_layout" style="height: 90%;width: 100%"></div>
 
                 </div>
 
@@ -335,16 +335,12 @@
 
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 0.6% !important; height: 32.1%;">
                     <div class="dataAllBorder02" id="map_title_innerbox">
-                        <div class="map_title_box">
-                            <div class="map_title_innerbox">
-                                <div class="map_title" style="background-image: url(img/second_title.png);">
-                                    各行政区房源数量
-                                </div>
 
-                            </div>
-                        </div>
                         <!--                        <table id="table" style="width: 100%"></table>-->
-                        <div id="district_group" style="height: 90%;width:100%"></div>
+                        <div id="top10AvgRent" style="height: 100%;width:50%;float: left"></div>
+
+
+                        <div id="reciprocal10AvgRent" style="height: 100%;width:50%;float: right"></div>
 
                     </div>
                 </div>
@@ -353,92 +349,94 @@
             <div class="right_cage">
                 <!--顶部切换位置-->
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 9% !important; height: 33%">
-<!--                                                    <div class="data_tit1">用水</div>-->
+                    <!--                                                    <div class="data_tit1">用水</div>-->
 
-                                        <div class="map_title" style="background-image: url(img/second_title.png);">
-                        基础设施
+                    <div class="map_title" style="background-image: url(img/second_title.png);">
+                        房源特征
                     </div>
                     <div id="top20_business" style="height: 90%;width: 100%">
 
 
-<!--                                            <div class="dataAllBorder01">-->
-<!--                                                <div class="dataAllBorder02">-->
-                    <div class="data25height maginS">
-<!--                        <div class="dataAllBorder01">-->
-<!--                            <div class="dataAllBorder02">-->
-<!--                                <div class="data_tit1">用水</div>-->
-                                <div class="data_chart" id="water"></div>
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="data25height maginS">
+                            <div class="data_chart" id="water"></div>
+                        </div>
+                        <div class="data25height maginS">
+                            <!--                        <div class="dataAllBorder01">-->
+                            <!--                            <div class="dataAllBorder02">-->
+                            <!--                                <div class="data_tit1">用电</div>-->
+                            <div class="data_chart" id="kwh"></div>
+                            <!--                            </div>-->
+                            <!--                        </div>-->
+                        </div>
+                        <div class="data25heightright maginS">
+                            <!--                        <div class="dataAllBorder01">-->
+                            <!--                            <div class="dataAllBorder02">-->
+                            <!--                                <div class="data_tit1">燃气</div>-->
+                            <div class="data_chart" id="gas"></div>
+                            <!--                            </div>-->
+                            <!--                        </div>-->
+                        </div>
+                        <div class="data25heightright maginS">
+                            <!--                        <div class="dataAllBorder01">-->
+                            <!--                            <div class="dataAllBorder02">-->
+                            <!--                                <div class="data_tit1">采暖</div>-->
+                            <div class="data_chart" id="heating"></div>
+                            <!--                            </div>-->
+                            <!--                        </div>-->
+                        </div>
                     </div>
-                    <div class="data25height maginS">
-<!--                        <div class="dataAllBorder01">-->
-<!--                            <div class="dataAllBorder02">-->
-<!--                                <div class="data_tit1">用电</div>-->
-                                <div class="data_chart" id="kwh"></div>
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
-                    <div class="data25heightright maginS">
-<!--                        <div class="dataAllBorder01">-->
-<!--                            <div class="dataAllBorder02">-->
-<!--                                <div class="data_tit1">燃气</div>-->
-                                <div class="data_chart" id="gas"></div>
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
-                    <div class="data25heightright maginS">
-<!--                        <div class="dataAllBorder01">-->
-<!--                            <div class="dataAllBorder02">-->
-<!--                                <div class="data_tit1">采暖</div>-->
-                                <div class="data_chart" id="heating"></div>
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
-<!--                                                </div>-->
-<!--                                              </div>-->
-                </div>
                 </div>
 
 
                 <div class="dataAllBorder01 cage_cl check_decrease"
+                     style="margin-top: 1.5% !important; height: 35%; position: relative;">
+                    <div class="dataAllBorder02 over_hide" style="padding: 1.2%;">
+
+                        <div id="" style="height: 100%;width: 100%">
+
+                            <div class="data25height maginS">
+                                <div class="data_chart" id="orientation"></div>
+                            </div>
+
+
+                            <div class="data25heightright maginS">
+                                <div class="data_chart" id="floor"></div>
+                            </div>
+
+
+                            <div class="data25height maginS">
+                                <div class="data_chart" id="parking"></div>
+                            </div>
+                            <div class="data25heightright maginS">
+
+                                <div class="data_chart" id="renovation"></div>
+                            </div>
+
+<!--                            <div class="data34right maginS">-->
+
+<!--                                <div class="data_chart" id="lift"></div>-->
+<!--                            </div>-->
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="dataAllBorder01 cage_cl check_decrease"
                      style="margin-top: 1.5% !important; height: 26%; position: relative;">
                     <div class="dataAllBorder02 over_hide" style="padding: 1.2%;">
-                        <div class="analysis">xxxxx构成因素占比：</div>
-                        <div class="danger_contain_box">
-                            <div id="container_huan" style="height: 90%;width: 100%"></div>
-                        </div>
-                        <div class="danger_depart_box">
 
-                            <ul class="danger_depart">
-                                <li class="danger_ico"
-                                    style="background-image: url(img/images/pic_ico_01.png); background-position-x: 0px"></li>
-                                <li class="data_name">xxxxx综合</li>
-                                <li class="data data01">652</li>
-                                <li class="data data02">↑&nbsp&nbsp1.2%</li>
-                            </ul>
-                            <ul class="danger_depart">
-                                <li class="danger_ico"
-                                    style="background-image: url(img/images/pic_ico_02.png); background-position-x: 0px"></li>
-                                <li class="data_name">统计一</li>
-                                <li class="data data01">97</li>
-                                <li class="data data02" style="color: #ff2865;">↓&nbsp&nbsp0.3%</li>
-                            </ul>
-                            <ul class="danger_depart danger_depart01">
-                                <li class="danger_ico"
-                                    style="background-image: url(img/images/pic_ico_03.png); background-position-x: 0px"></li>
-                                <li class="data_name">统计二</li>
-                                <li class="data data01">423</li>
-                                <li class="data data02">↑&nbsp&nbsp1%</li>
-                            </ul>
-                            <ul class="danger_depart danger_depart01">
-                                <li class="danger_ico"
-                                    style="background-image: url(img/images/pic_ico_01.png); background-position-x: 0px"></li>
-                                <li class="data_name">统计三</li>
-                                <li class="data data01">218</li>
-                                <li class="data data02">↑&nbsp&nbsp0.3%</li>
-                            </ul>
+                        <div id="top10_layout" style="height: 100%;width: 100%">
+                            <!--                            <div id="top10_layout" style="height: 90%;width: 100%"></div>-->
 
+                            <div class="data25height maginS">
+                                <!--                                <div class="data_chart" id="orientation"></div>-->
+                            </div>
+
+
+                            <div class="data25heightright maginS">
+                                <!--                                <div class="data_chart" id="floor"></div>-->
+                            </div>
                         </div>
 
                     </div>
@@ -447,91 +445,91 @@
 
         </div>
         <!--        第二页统计数据-->
-        <div class="inner" style="display: none;">
-            <div class="data_left33">
-                <div class="data50height maginS">
-                    <div class="dataAllBorder01">
-                        <div class="dataAllBorder02">
-                            <div class="data_tit1">电梯</div>
-                            <div class="data_chart" id="lift"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="data50height maginS">
-                    <div class="dataAllBorder01">
-                        <div class="dataAllBorder02">
-                            <div class="data_tit1">装修</div>
-                            <div class="data_chart" id="renovation"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="data_left33">
-                <div class="data50height maginS">
-                    <div class="dataAllBorder01">
-                        <div class="dataAllBorder02">
-                            <div class="data_tit1">车位</div>
-                            <div class="data_chart" id="parking"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="data50height maginS">
-                    <div class="dataAllBorder01">
-                        <div class="dataAllBorder02">
-                            <div class="data_tit1">楼层</div>
-                            <div class="data_chart" id="floor"></div>
-                        </div>
-                    </div>
-                </div>
+        <!--        <div class="inner" style="display: none;">-->
+        <!--            <div class="data_left33">-->
+        <!--                <div class="data50height maginS">-->
+        <!--                    <div class="dataAllBorder01">-->
+        <!--                        <div class="dataAllBorder02">-->
+        <!--                            <div class="data_tit1">电梯</div>-->
+        <!--                            <div class="data_chart" id="lift"></div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="data50height maginS">-->
+        <!--                    <div class="dataAllBorder01">-->
+        <!--                        <div class="dataAllBorder02">-->
+        <!--                            <div class="data_tit1">装修</div>-->
+        <!--                            <div class="data_chart" id="renovation"></div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="data_left33">-->
+        <!--                <div class="data50height maginS">-->
+        <!--                    <div class="dataAllBorder01">-->
+        <!--                        <div class="dataAllBorder02">-->
+        <!--                            <div class="data_tit1">车位</div>-->
+        <!--                            <div class="data_chart" id="parking"></div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="data50height maginS">-->
+        <!--                    <div class="dataAllBorder01">-->
+        <!--                        <div class="dataAllBorder02">-->
+        <!--                            <div class="data_tit1">楼层</div>-->
+        <!--                            <div class="data_chart" id=""></div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
 
-            </div>
-            <div class="data_left02">
-                <div class="dataAllright100">
-                    <div class="dataAllBorder01">
-                        <div class="dataAllBorder02">
-                            <div class="data_tit1">房屋朝向分布</div>
-                            <div class="data_chart" id="orientation"></div>
-                        </div>
-                    </div>
-                </div>
+        <!--            </div>-->
+        <!--            <div class="data_left02">-->
+        <!--&lt;!&ndash;                <div class="dataAllright100">&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <div class="dataAllBorder01">&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <div class="dataAllBorder02">&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <div class="data_tit1">房屋朝向分布</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <div class="data_chart" id="orientation"></div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </div>&ndash;&gt;-->
 
-            </div>
-        </div>
+        <!--            </div>-->
+        <!--        </div>-->
         <!--        第三页统计数据-->
         <div class="inner" style="display:none">
             <div class="data_left22">
-<!--                <div class="data25height maginS">-->
-<!--                    <div class="dataAllBorder01">-->
-<!--                        <div class="dataAllBorder02">-->
-<!--                            <div class="data_tit1">用水</div>-->
-<!--                            <div class="data_chart" id="water"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="data25height maginS">-->
-<!--                    <div class="dataAllBorder01">-->
-<!--                        <div class="dataAllBorder02">-->
-<!--                            <div class="data_tit1">用电</div>-->
-<!--                            <div class="data_chart" id="kwh"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="data25height maginS">-->
-<!--                    <div class="dataAllBorder01">-->
-<!--                        <div class="dataAllBorder02">-->
-<!--                            <div class="data_tit1">燃气</div>-->
-<!--                            <div class="data_chart" id="gas"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="data25height maginS">-->
-<!--                    <div class="dataAllBorder01">-->
-<!--                        <div class="dataAllBorder02">-->
-<!--                            <div class="data_tit1">采暖</div>-->
-<!--                            <div class="data_chart" id="heating"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="data25height maginS">-->
+                <!--                    <div class="dataAllBorder01">-->
+                <!--                        <div class="dataAllBorder02">-->
+                <!--                            <div class="data_tit1">用水</div>-->
+                <!--                            <div class="data_chart" id="water"></div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="data25height maginS">-->
+                <!--                    <div class="dataAllBorder01">-->
+                <!--                        <div class="dataAllBorder02">-->
+                <!--                            <div class="data_tit1">用电</div>-->
+                <!--                            <div class="data_chart" id="kwh"></div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="data25height maginS">-->
+                <!--                    <div class="dataAllBorder01">-->
+                <!--                        <div class="dataAllBorder02">-->
+                <!--                            <div class="data_tit1">燃气</div>-->
+                <!--                            <div class="data_chart" id="gas"></div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                <div class="data25height maginS">-->
+                <!--                    <div class="dataAllBorder01">-->
+                <!--                        <div class="dataAllBorder02">-->
+                <!--                            <div class="data_tit1">采暖</div>-->
+                <!--                            <div class="data_chart" id="heating"></div>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
             <div class="data_left04">
 
@@ -969,11 +967,14 @@
 
             })
         });
-        Echarts1();
+        // Echarts1();
         Echarts2();
         Echarts3();
         Echarts4();
         // Echarts5();
+        top10AvgRent();
+        reciprocal10AvgRent();
+
         $("#fresh_tool").click(function (event) {
             event.stopPropagation();
             cancel();
@@ -981,12 +982,16 @@
 
     });
 
-    $(function(){
+    $(function () {
         var myChart = echarts.init($("#water")[0]);
         $.get('/waterGroupCount').done(function (data) {
             myChart.setOption({
-                title:{
-                    text:'用水'
+                title: {
+                    text: '用水',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
                 },
                 tooltip: {
                     trigger: 'item',
@@ -1017,19 +1022,23 @@
                         labelLine: {
                             show: false
                         },
-                        data:data,
+                        data: data,
                     }
                 ]
             });
         });
     });
 
-    $(function(){
+    $(function () {
         var myChart = echarts.init($("#kwh")[0]);
         $.get('/kwhGroupCount').done(function (data) {
             myChart.setOption({
-                title:{
-                    text:'用电'
+                title: {
+                    text: '用电',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
                 },
                 tooltip: {
                     trigger: 'item',
@@ -1060,19 +1069,23 @@
                         labelLine: {
                             show: false
                         },
-                        data:data,
+                        data: data,
                     }
                 ]
             });
         });
     });
 
-    $(function(){
+    $(function () {
         var myChart = echarts.init($("#gas")[0]);
         $.get('/gasGroupCount').done(function (data) {
             myChart.setOption({
-                title:{
-                    text:'燃气'
+                title: {
+                    text: '燃气',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
                 },
                 tooltip: {
                     trigger: 'item',
@@ -1103,19 +1116,23 @@
                         labelLine: {
                             show: false
                         },
-                        data:data,
+                        data: data,
                     }
                 ]
             });
         });
     });
 
-    $(function(){
+    $(function () {
         var myChart = echarts.init($("#heating")[0]);
         $.get('/heatingGroupCount').done(function (data) {
             myChart.setOption({
-                title:{
-                    text:'采暖'
+                title: {
+                    text: '采暖',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
                 },
                 tooltip: {
                     trigger: 'item',
@@ -1146,12 +1163,243 @@
                         labelLine: {
                             show: false
                         },
-                        data:data,
+                        data: data,
                     }
                 ]
             });
         });
     });
+
+    $(function () {
+        var myChart = echarts.init($("#orientation")[0]);
+        $.get('/orientationGroupCount').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '朝向',
+                    subtext: '',
+                    left: 'LEFT'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: []
+                },
+                series: [
+                    {
+                        name: '朝向',
+                        type: 'pie',
+                        radius: '50%',
+                        center: ['50%', '60%'],
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            }
+                        },
+                        data: data,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    });
+
+    $(function () {
+        var myChart = echarts.init($("#floor")[0]);
+        $.get('/floorGroupCount').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '楼层',
+                    subtext: '',
+                    left: 'LEFT'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: []
+                },
+                series: [
+                    {
+                        name: '楼层',
+                        type: 'pie',
+                        radius: '60%',
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            }
+                        },
+                        center: ['50%', '50%'],
+                        data: data,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    });
+
+
+    //电梯 车位 装修
+    $(function () {
+        var myChart = echarts.init($("#renovation")[0]);
+        $.get('/renovationGroupCount').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '装修',
+                    subtext: '',
+                    left: 'LEFT'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: []
+                },
+                series: [
+                    {
+                        name: '房源',
+                        type: 'pie',
+                        radius: '55%',
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            }
+                        },
+                        center: ['50%', '60%'],
+                        data: data,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    });
+
+    $(function () {
+        var myChart = echarts.init($("#parking")[0]);
+        $.get('/parkingGroupCount').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '车位',
+                    subtext: '',
+                    left: 'LEFT'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: []
+                },
+                series: [
+                    {
+                        name: '房源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: data,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            }
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    });
+
+    $(function () {
+        var myChart = echarts.init($("#floor")[0]);
+        $.get('/floorGroupCount').done(function (data) {
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: []
+                },
+                series: [
+                    {
+                        name: '房源',
+                        type: 'pie',
+                        radius: '55%',
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            }
+                        },
+                        center: ['50%', '60%'],
+                        data: data,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            });
+        });
+    });
+
 
     function EventClick() {
         $(".check_increase").removeClass("check_increase_act");
@@ -1341,6 +1589,14 @@
 // 异步加载数据
         $.get('/layoutGroupCount').done(function (data) {
             myChart.setOption({
+                title: {
+                    text: 'Top10户型',
+                    subtext: '',
+                    left: 'center'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -1500,6 +1756,162 @@
                             }
                         }
                     },
+                ]
+            });
+        });
+    }
+
+
+    function top10AvgRent() {
+        // var myChart = echarts.init($("#district_group")[0]);
+        var myChart = echarts.init($("#top10AvgRent")[0]);
+// 异步加载数据
+        $.get('/top10AvgRent').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '每平米租金前10商圈',
+                    subtext: '',
+                    left: 'center'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    x: 40,
+                    y: 30,
+                    x2: 32,
+                    y2: 40,
+                    borderWidth: 0
+                },
+                calculable: true,
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: data.name,
+
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#a4a7ab',
+                                align: 'center'
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#a4a7ab'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '每平米租金',
+                        type: 'bar',
+                        barWidth: '30',
+                        data: data.count,
+                        itemStyle: {
+                            normal: {
+                                color: "#269fec"
+                            }
+                        }
+
+                    }
+                ]
+            });
+        });
+    }
+
+
+    function reciprocal10AvgRent() {
+        // var myChart = echarts.init($("#district_group")[0]);
+        var myChart = echarts.init($("#reciprocal10AvgRent")[0]);
+// 异步加载数据
+        $.get('/reciprocal10AvgRent').done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '每平米租金末10商圈',
+                    subtext: '',
+                    left: 'center'
+                    , textStyle: {
+                        color: "#FFFFFF"
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    x: 40,
+                    y: 30,
+                    x2: 32,
+                    y2: 40,
+                    borderWidth: 0
+                },
+                calculable: true,
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: data.name,
+
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#a4a7ab',
+                                align: 'center'
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        splitLine: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#a4a7ab'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '每平米租金',
+                        type: 'bar',
+                        barWidth: '30',
+                        data: data.count,
+                        itemStyle: {
+                            normal: {
+                                color: "#269fec"
+                            }
+                        }
+
+                    }
                 ]
             });
         });

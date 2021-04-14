@@ -4,30 +4,30 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.domain.house.entity.House">
-        <id column="id" property="id" />
-        <result column="district" property="district" />
-        <result column="business" property="business" />
-        <result column="quarters" property="quarters" />
-        <result column="layout" property="layout" />
-        <result column="characteristic" property="characteristic" />
-        <result column="area" property="area" />
-        <result column="orientation" property="orientation" />
-        <result column="floor" property="floor" />
-        <result column="lift" property="lift" />
-        <result column="parking" property="parking" />
-        <result column="water" property="water" />
-        <result column="kwh" property="kwh" />
-        <result column="gas" property="gas" />
-        <result column="heating" property="heating" />
-        <result column="renovation" property="renovation" />
-        <result column="tenancy" property="tenancy" />
-        <result column="leasing" property="leasing" />
-        <result column="payment" property="payment" />
-        <result column="rent" property="rent" />
-        <result column="deposit" property="deposit" />
-        <result column="agency_fee" property="agencyFee" />
-        <result column="longitude" property="longitude" />
-        <result column="latitude" property="latitude" />
+        <id column="id" property="id"/>
+        <result column="district" property="district"/>
+        <result column="business" property="business"/>
+        <result column="quarters" property="quarters"/>
+        <result column="layout" property="layout"/>
+        <result column="characteristic" property="characteristic"/>
+        <result column="area" property="area"/>
+        <result column="orientation" property="orientation"/>
+        <result column="floor" property="floor"/>
+        <result column="lift" property="lift"/>
+        <result column="parking" property="parking"/>
+        <result column="water" property="water"/>
+        <result column="kwh" property="kwh"/>
+        <result column="gas" property="gas"/>
+        <result column="heating" property="heating"/>
+        <result column="renovation" property="renovation"/>
+        <result column="tenancy" property="tenancy"/>
+        <result column="leasing" property="leasing"/>
+        <result column="payment" property="payment"/>
+        <result column="rent" property="rent"/>
+        <result column="deposit" property="deposit"/>
+        <result column="agency_fee" property="agencyFee"/>
+        <result column="longitude" property="longitude"/>
+        <result column="latitude" property="latitude"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -160,5 +160,26 @@ agency_fee, longitude, latitude
     GROUP BY
     business
     ORDER BY AVG(rent) DESC LIMIT 20
+    </select>
+
+    <select id="top10AvgRent" resultType="com.domain.house.entity.CountName">
+    select round(rent / area) as count , business as name
+    from (select business, sum(rent) as rent, sum(area) as area
+    from house group by business) as bra
+    group by business
+    order by count desc
+    limit 10;
+
+    </select>
+
+    <select id="reciprocal10AvgRent" resultType="com.domain.house.entity.CountName">
+    select round(rent / area) as count , business as name
+    from
+    (select business, sum(rent) as rent, sum(area) as area
+    from house group by business) as bra
+    group by business
+    order by count
+    limit 10;
+
     </select>
 </mapper>

@@ -201,6 +201,39 @@ public class HouseController {
     }
 
 
+    /**
+     * 每平米租金 top 10
+     */
+    @RequestMapping("top10AvgRent")
+    @ResponseBody
+    public Map top10AvgRent(){
+        List<CountName> countNames =  houseService.top10AvgRent();
+        List<Integer> count = countNames.stream().map(CountName::getCount).collect(Collectors.toList());
+        List<String> name = countNames.stream().map(CountName::getName).collect(Collectors.toList());
+        Map<String,List> map = new HashMap();
+        map.put("name", name);
+        map.put("count", count);
+       return map;
+    }
+
+    /**
+     * 每平米租金 倒数10
+     */
+    @RequestMapping("reciprocal10AvgRent")
+    @ResponseBody
+    public Map reciprocal10AvgRent(){
+        List<CountName> countNames =  houseService.reciprocal10AvgRent();
+        List<Integer> count = countNames.stream().map(CountName::getCount).collect(Collectors.toList());
+        List<String> name = countNames.stream().map(CountName::getName).collect(Collectors.toList());
+        Map<String,List> map = new HashMap();
+        map.put("name", name);
+        map.put("count", count);
+        return map;
+    }
+
+
+
+
 
 
 
