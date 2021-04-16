@@ -35,14 +35,52 @@
         id, district, business, quarters, layout, characteristic, area, orientation, floor, lift, parking, water, kwh, gas, heating, renovation, tenancy, leasing, payment, rent, deposit, 
 agency_fee, longitude, latitude
     </sql>
-    <select id="districtGroupCount" resultType="com.domain.house.entity.CountName">
-       SELECT COUNT(1) as 'count',district as 'name' from house GROUP BY district
+    <select id="districtGroupCount" resultType="com.domain.house.entity.CountNameRent">
+       SELECT
+	COUNT( 1 ) AS 'count',
+	district AS 'name',
+	avg.rent
+FROM
+	house
+	LEFT JOIN (
+	SELECT
+		ROUND( AVG( rent ), 1 ) AS rent,
+		district AS 'name'
+	FROM
+		house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+	GROUP BY
+		district
+	ORDER BY
+		AVG( rent ) DESC
+	) avg ON avg.NAME = house.district
+GROUP BY
+	district
     </select>
     <select id="layoutGroupCount" resultType="com.domain.house.entity.CountName">
-       SELECT COUNT(1) as 'count',layout as 'name' from house GROUP BY layout ORDER BY COUNT(1) DESC LIMIT 10
+       SELECT COUNT(1) as 'count',layout as 'name' from house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+        GROUP BY layout ORDER BY COUNT(1) DESC LIMIT 10
     </select>
     <select id="businessGroupCount" resultType="com.domain.house.entity.CountName">
-        SELECT COUNT(1) as 'count',business as 'name' from house GROUP BY business ORDER BY COUNT(1) DESC  LIMIT 20
+        SELECT COUNT(1) as 'count',business as 'name' from house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+        GROUP BY business ORDER BY COUNT(1) DESC  LIMIT 20
     </select>
     <select id="areaGroupCount" resultType="com.domain.house.entity.ValueName">
         SELECT
@@ -50,25 +88,44 @@ agency_fee, longitude, latitude
         '小户型' AS 'name'
         FROM
         house
-        WHERE
-        area BETWEEN 0
-        AND 90 UNION
+
+        <where>
+            area BETWEEN 0
+            AND 90
+            <if test="min!=null and max!=null">
+              AND  house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+        UNION
         SELECT
         COUNT( 1 ) AS 'value',
         '中户型' AS 'name'
         FROM
         house
-        WHERE
-        area BETWEEN 90
-        AND 144 UNION
+        <where>
+            area BETWEEN 90
+            AND 144
+            <if test="min!=null and max!=null">
+              AND  house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+         UNION
         SELECT
         COUNT( 1 ) AS 'value',
         '大户型' AS 'name'
         FROM
         house
-        WHERE
-        area  BETWEEN 144
-        AND 1000
+        <where>
+            area  BETWEEN 144
+            AND 1000
+            <if test="min!=null and max!=null">
+             AND   house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+
     </select>
     <select id="orientationGroupCount" resultType="com.domain.house.entity.ValueName">
     SELECT
@@ -76,6 +133,12 @@ agency_fee, longitude, latitude
         LEFT ( orientation, 2 ) AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         LEFT ( orientation, 2);
     </select>
@@ -85,6 +148,12 @@ agency_fee, longitude, latitude
     renovation AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         renovation
     </select>
@@ -94,6 +163,12 @@ agency_fee, longitude, latitude
     parking AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         parking
     </select>
@@ -103,6 +178,12 @@ agency_fee, longitude, latitude
         LEFT(floor,3) AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         LEFT(floor,3);
     </select>
@@ -112,6 +193,12 @@ agency_fee, longitude, latitude
     lift AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         lift
     </select>
@@ -121,6 +208,12 @@ agency_fee, longitude, latitude
     water AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         water
     </select>
@@ -130,6 +223,12 @@ agency_fee, longitude, latitude
     kwh AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         kwh
     </select>
@@ -139,6 +238,12 @@ agency_fee, longitude, latitude
     gas AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         gas
     </select>
@@ -148,6 +253,12 @@ agency_fee, longitude, latitude
     heating AS 'name'
     FROM
         house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
         heating
     </select>
@@ -157,6 +268,12 @@ agency_fee, longitude, latitude
     business AS 'name'
     FROM
     house
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     GROUP BY
     business
     ORDER BY AVG(rent) DESC LIMIT 20
@@ -166,6 +283,12 @@ agency_fee, longitude, latitude
     select round(rent / area) as count , business as name
     from (select business, sum(rent) as rent, sum(area) as area
     from house group by business) as bra
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     group by business
     order by count desc
     limit 10;
@@ -177,9 +300,48 @@ agency_fee, longitude, latitude
     from
     (select business, sum(rent) as rent, sum(area) as area
     from house group by business) as bra
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
     group by business
     order by count
     limit 10;
 
+    </select>
+    <select id="mapPoint" resultMap="BaseResultMap">
+        SELECT   id, district, business, quarters, layout, characteristic, replace(area,'?','(m²)') as area, orientation, floor, lift, parking, water, kwh, gas, heating, renovation, tenancy, leasing, payment, round(rent,0) as rent, deposit,  ROUND(longitude,3) as longitude, ROUND(latitude,3) as latitude,url FROM `house`
+        WHERE rent BETWEEN #{min} and #{max}
+    </select>
+    <select id="businessGroupByOfRent" resultType="com.domain.house.entity.CountNameRent">
+        SELECT
+        COUNT( 1 ) as count,
+        business as name,
+        avg.rent
+        FROM
+        house
+        LEFT JOIN (
+        SELECT
+        ROUND(AVG( rent ),1) AS rent,
+        business AS 'name'
+        FROM
+        house
+        GROUP BY
+        business
+        ORDER BY
+        AVG( rent ) DESC
+        ) avg ON avg.NAME = house.business
+        <where>
+            <if test="min!=null and max!=null">
+                house.rent BETWEEN #{min}
+                AND #{max}
+            </if>
+        </where>
+        GROUP BY
+        business
+        order by COUNT( 1 ) desc
+        limit 10
     </select>
 </mapper>

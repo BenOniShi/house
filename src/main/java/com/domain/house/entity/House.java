@@ -88,10 +88,13 @@ public class House implements Serializable {
     private String agencyFee;
 
     @ApiModelProperty(value = "经度")
-    private String longitude;
+    private float longitude;
 
     @ApiModelProperty(value = "纬度")
-    private String latitude;
+    private float latitude;
+
+    @ApiModelProperty(value = "链接")
+    private String url;
 
 
     public Integer getId() {
@@ -270,21 +273,23 @@ public class House implements Serializable {
         this.agencyFee = agencyFee;
     }
 
-    public String getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
+
+
 
     @Override
     public String toString() {
@@ -313,6 +318,15 @@ public class House implements Serializable {
                 ", agencyFee = " + agencyFee +
                 ", longitude=" + longitude +
                 ", latitude=" + latitude +
+                ", url=" + url +
                 "}";
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

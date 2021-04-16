@@ -1,11 +1,13 @@
 package com.domain.house.service;
 
 import com.domain.house.entity.CountName;
+import com.domain.house.entity.CountNameRent;
 import com.domain.house.entity.House;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.domain.house.entity.ValueName;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -17,35 +19,39 @@ import java.util.List;
  */
 public interface IHouseService extends IService<House> {
 
-    List<CountName> districtGroupCount();
+    List<CountNameRent> districtGroupCount(Integer min,Integer max);
 
-    List<CountName> layoutGroupCount();
+    List<CountName> layoutGroupCount(Integer min,Integer max);
 
-    List<CountName> businessGroupCount();
+    List<CountName> businessGroupCount(Integer min,Integer max);
 
-    List<ValueName> areaGroupCount();
+    List<ValueName> areaGroupCount(Integer min,Integer max);
 
-    List<ValueName> orientationGroupCount();
+    List<ValueName> orientationGroupCount(Integer min,Integer max);
 
-    List<ValueName> renovationGroupCount();
+    List<ValueName> renovationGroupCount(Integer min,Integer max);
 
-    List<ValueName> parkingGroupCount();
+    List<ValueName> parkingGroupCount(Integer min,Integer max);
 
-    List<ValueName> floorGroupCount();
+    List<ValueName> floorGroupCount(Integer min,Integer max);
 
-    List<ValueName> liftGroupCount();
+    List<ValueName> liftGroupCount(Integer min,Integer max);
 
-    List<ValueName> waterGroupCount();
+    List<ValueName> waterGroupCount(Integer min,Integer max);
 
-    List<ValueName> kwhGroupCount();
+    List<ValueName> kwhGroupCount(Integer min,Integer max);
 
-    List<ValueName> gasGroupCount();
+    List<ValueName> gasGroupCount(Integer min,Integer max);
 
-    List<ValueName> heatingGroupCount();
+    List<ValueName> heatingGroupCount(Integer min,Integer max);
 
-    List<CountName> top20RentBusiness();
+    List<CountName> top20RentBusiness(Integer min,Integer max);
 
-    List<CountName> top10AvgRent();
+    List<CountName> top10AvgRent(Integer min,Integer max);
 
-    List<CountName> reciprocal10AvgRent();
+    List<CountName> reciprocal10AvgRent(Integer min,Integer max);
+
+    List<House> mapPoint(Integer min,Integer max);
+
+    List<CountNameRent> businessGroupByOfRent(Integer min, Integer max);
 }
