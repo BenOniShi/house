@@ -38,13 +38,14 @@
 
                 </div>
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 1.5% !important; height: 38%;">
-                    <div class="map_title">房屋面积分布</div>
-                    <div id="area_group" style="height: 90%;width: 100%"></div>
+                    <div id="area_group" style="height: 50%;width: 100%"></div>
+                    <div id="liftGroupBy" style="height: 50%;width: 100%;float: left"></div>
+
 
                 </div>
                 <div class="dataAllBorder01 cage_cl" style="margin-top: 1.5% !important; height: 32%;">
                     <div class="map_title" style="background-image: url(img/second_title.png);">商圈平均租金与房源数量</div>
-                    <div id="businessGroupByOfRent" style="height: 90%;width: 100%"></div>
+                    <div id="businessGroupByOfRent" style="height: 100%;width: 100%"></div>
 
                 </div>
             </div>
@@ -357,8 +358,8 @@
         top10AvgRent();
         reciprocal10AvgRent();
         businessGroupByOfRent();
-
         mapP(0,2000);
+        liftGroupCount();
         waterGroupCount();
         kwhGroupCount();
         gasGroupCount();
@@ -374,6 +375,57 @@
         })
 
     });
+
+
+    function liftGroupCount (min,max) {
+        var myChart = echarts.init($("#liftGroupBy")[0]);
+        $.get('/liftGroupCount',{
+            min:min,
+            max:max
+        }).done(function (data) {
+            myChart.setOption({
+                title: {
+                    text: '电梯',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 10,
+                    data: []
+                },
+                series: [
+                    {
+                        name: '房屋数量',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '15',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: data,
+                    }
+                ]
+            });
+        });
+    };
 
     function waterGroupCount (min,max) {
         var myChart = echarts.init($("#water")[0]);
@@ -805,6 +857,7 @@
         businessGroupByOfRent(min,max);
 
         mapP(min,max);
+        liftGroupCount(min,max);
         waterGroupCount(min,max);
         kwhGroupCount(min,max);
         gasGroupCount(min,max);
@@ -973,12 +1026,19 @@
             max:max
         }).done(function (data) {
             myChart.setOption({
+                title: {
+                    text: '房屋面积',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFFFFF'
+                    },
+                },
                 tooltip: {
                     trigger: 'item',
                     formatter: '{a} <br/>{b} : {c} ({d}%)'
                 },
                 legend: {
-                    left: 'center',
+                    left: 'right',
                     top: 'bottom',
                     data: ['小户型', '中户型', '大户型']
                 },
